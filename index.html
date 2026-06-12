@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>客如云产品亮点功能库</title>
+<meta name="description" content="客如云一站式餐饮数字化解决方案">
+<meta property="og:title" content="客如云产品亮点功能库">
+<meta property="og:description" content="一站式餐饮数字化解决方案 · 180万+商户信赖">
+<meta property="og:type" content="website">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  :root {
+    --primary: #1677FF; --primary-light: #E8F3FF; --primary-dark: #0958D9;
+    --accent: #FF6B35; --bg: #F5F7FA; --card-bg: #FFFFFF;
+    --text: #1D2129; --text-secondary: #4E5969; --text-muted: #86909C;
+    --border: #E5E6EB; --radius: 14px;
+    --tag-hot: #FF4D4F; --tag-new: #722ED1; --tag-rec: #FA8C16;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #0F172A; color: var(--text); line-height: 1.6; overflow-x: hidden; display: flex; justify-content: center; min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  .phone-frame {
+    width: 100%; max-width: 430px; background: var(--bg); position: relative; overflow-x: hidden;
+  }
+  @media (min-width: 431px) {
+    body { padding: 24px 0; padding-bottom: 60px; }
+    .phone-frame {
+      border-radius: 40px; border: 3px solid #1E293B; max-height: 932px; overflow-y: auto; overflow-x: hidden;
+      box-shadow: 0 0 80px rgba(0,0,0,0.5), 0 0 160px rgba(22,119,255,0.08);
+    }
+    .phone-frame::-webkit-scrollbar { width:0; }
+  }
+
+  /* ===== BANNER ===== */
+  .banner {
+    position: relative; width: 100%; height: 190px; overflow: hidden;
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 30%, #1976D2 60%, #42A5F5 100%);
+  }
+  .banner-slides { display: flex; width: 300%; height: 100%; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+  .banner-slide {
+    width: 33.333%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 24px; text-align: center; position: relative; overflow: hidden;
+  }
+  .banner-slide::before { content:''; position:absolute; top:-60px; right:-40px; width:220px; height:220px; background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%); border-radius:50%; }
+  .banner-slide::after { content:''; position:absolute; bottom:-40px; left:-30px; width:160px; height:160px; background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%); border-radius:50%; }
+  .banner-slide .slide-icon { font-size:42px; margin-bottom:10px; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.25)); position:relative; z-index:1; }
+  .banner-slide h2 { color:#fff; font-size:22px; font-weight:800; margin-bottom:6px; text-shadow:0 2px 6px rgba(0,0,0,0.2); position:relative; z-index:1; letter-spacing:-0.3px; }
+  .banner-slide p { color:rgba(255,255,255,0.8); font-size:12px; max-width:280px; position:relative; z-index:1; line-height:1.5; }
+  .banner-dots { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; }
+  .banner-dot { width:8px; height:8px; border-radius:4px; background:rgba(255,255,255,0.4); transition:all 0.3s; cursor:pointer; }
+  .banner-dot.active { width:24px; background:#fff; }
+
+  /* ===== STATS ===== */
+  .stats-bar { display:flex; gap:10px; padding:0 16px; margin-top:-26px; position:relative; z-index:10; }
+  .stat-card { flex:1; background:var(--card-bg); border-radius:12px; padding:12px 6px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.04); }
+  .stat-num { font-size:22px; font-weight:800; background:linear-gradient(135deg,var(--primary),var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1.2; }
+  .stat-label { font-size:10px; color:var(--text-muted); margin-top:2px; font-weight:500; }
+
+  /* ===== TABS ===== */
+  .tabs-wrapper { position:sticky; top:0; z-index:90; background:rgba(245,247,250,0.95); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); padding:14px 16px 12px; }
+  .tabs { display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex-shrink:0; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; color:var(--text-secondary); background:var(--card-bg); border:1.5px solid var(--border); transition:all 0.3s; cursor:pointer; user-select:none; white-space:nowrap; }
+  .tab.active { background:var(--primary); color:#fff; border-color:var(--primary); box-shadow:0 3px 12px rgba(22,119,255,0.35); }
+  .tab .count { display:inline-block; background:rgba(0,0,0,0.06); font-size:11px; padding:1px 7px; border-radius:10px; margin-left:5px; font-weight:500; }
+  .tab.active .count { background:rgba(255,255,255,0.25); }
+
+  /* ===== SEARCH ===== */
+  .search-bar { margin:0 16px 14px; position:relative; }
+  .search-bar input { width:100%; padding:11px 16px 11px 40px; border:1.5px solid var(--border); border-radius:12px; font-size:14px; background:var(--card-bg); color:var(--text); outline:none; transition:all 0.3s; box-shadow:0 1px 4px rgba(0,0,0,0.03); }
+  .search-bar input:focus { border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-light); }
+  .search-bar input::placeholder { color:var(--text-muted); }
+  .search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:15px; }
+
+  /* ===== TIP ===== */
+  .save-tip { margin:0 16px 16px; padding:10px 14px; background:linear-gradient(135deg,#E8F3FF,#D4E8FF); border-radius:12px; display:flex; align-items:center; gap:8px; border:1px solid #B3D4FF; }
+  .save-tip .icon { font-size:16px; }
+  .save-tip .text { font-size:12px; color:var(--primary-dark); font-weight:500; }
+
+  /* ===== SECTION ===== */
+  .section { padding:0 16px; margin-bottom:20px; }
+  .section-header { display:flex; align-items:center; gap:8px; margin-bottom:12px; padding:0 2px; }
+  .section-icon { width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; }
+  .section-title { font-size:16px; font-weight:700; color:var(--text); }
+  .section-count { font-size:11px; color:var(--text-muted); margin-left:auto; font-weight:500; }
+  .theme-product .section-icon { background:linear-gradient(135deg,#E3F2FD,#BBDEFB); }
+  .theme-product .product-icon { background:linear-gradient(135deg,#E3F2FD,#BBDEFB); }
+  .theme-ai .section-icon { background:linear-gradient(135deg,#F3E5F5,#E1BEE7); }
+  .theme-ai .product-icon { background:linear-gradient(135deg,#F3E5F5,#E1BEE7); }
+
+  /* ===== PRODUCT ITEM ===== */
+  .product-item { background:var(--card-bg); border-radius:var(--radius); margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04); border:1.5px solid transparent; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .product-item.open .product-img-wrap { display:block; }
+  .product-item.open .arrow { transform:rotate(90deg); }
+  .product-item.open { border-color:var(--primary); box-shadow:0 4px 16px rgba(22,119,255,0.1); }
+  .product-item.fav .product-fav { color: var(--tag-hot); }
+  .product-row { display:flex; align-items:center; padding:14px 16px; gap:12px; cursor:pointer; }
+  .product-icon { flex-shrink:0; width:40px; height:40px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:18px; transition:transform 0.2s; }
+  .product-item.open .product-icon { transform:scale(1.08); }
+  .product-info { flex:1; min-width:0; }
+  .product-name { font-size:15px; font-weight:600; color:var(--text); }
+  .product-cat { font-size:11px; color:var(--text-muted); margin-top:2px; }
+  .arrow { flex-shrink:0; width:20px; height:20px; color:var(--text-muted); transition:transform 0.3s; }
+  .product-fav { flex-shrink:0; width:24px; height:24px; color:var(--border); cursor:pointer; transition:all 0.2s; }
+  .product-fav:active { transform:scale(1.3); }
+  .product-img-wrap { display:none; border-top:1px solid var(--border); }
+  .product-img-wrap img { width:100%; height:auto; display:block; }
+  .product-placeholder { padding:28px 20px; text-align:center; background:#F9FAFB; }
+  .product-placeholder .icon { font-size:30px; margin-bottom:8px; }
+  .product-placeholder .text { font-size:12px; color:var(--text-muted); }
+
+  /* ===== TAGS ===== */
+  .product-tags { display:flex; gap:5px; padding:0 16px 10px; flex-wrap:wrap; }
+  .tag { display:inline-flex; align-items:center; gap:2px; font-size:10px; font-weight:600; padding:2px 7px; border-radius:6px; }
+  .tag-hot { background:#FFF1F0; color:var(--tag-hot); border:1px solid #FFCCC7; }
+  .tag-new { background:#F9F0FF; color:var(--tag-new); border:1px solid #D3ADF7; }
+  .tag-rec { background:#FFF7E6; color:var(--tag-rec); border:1px solid #FFD591; }
+  .tag-scene { background:#F0F5FF; color:#597EF7; border:1px solid #ADC6FF; }
+
+  /* ===== PITCH ===== */
+  .product-pitch { padding:0 16px 10px; }
+  .pitch-box { background:#FFFBE6; border:1px solid #FFE58F; border-radius:10px; padding:10px 12px; display:flex; align-items:flex-start; gap:8px; }
+  .pitch-box .icon { font-size:14px; flex-shrink:0; margin-top:1px; }
+  .pitch-box .text { font-size:12px; color:#AD6800; line-height:1.5; flex:1; }
+  .pitch-copy { flex-shrink:0; background:var(--primary); color:#fff; border:none; border-radius:6px; padding:4px 10px; font-size:11px; font-weight:600; cursor:pointer; }
+  .pitch-copy:active { background:var(--primary-dark); }
+  .pitch-copy.copied { background:#52C41A; }
+
+  /* ===== BOTTOM BAR ===== */
+  .bottom-bar {
+    position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+    width:100%; max-width:430px; background:rgba(255,255,255,0.95); backdrop-filter:blur(12px);
+    border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-around;
+    padding:8px 0; padding-bottom:max(8px,env(safe-area-inset-bottom)); z-index:100;
+  }
+  .bar-btn { display:flex; flex-direction:column; align-items:center; gap:2px; padding:4px 12px; cursor:pointer; border-radius:8px; transition:background 0.2s; }
+  .bar-btn:active { background:var(--primary-light); }
+  .bar-btn .icon { font-size:20px; }
+  .bar-btn .label { font-size:10px; color:var(--text-muted); font-weight:500; }
+
+  /* ===== TOAST ===== */
+  .toast { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.9); background:rgba(0,0,0,0.8); color:#fff; padding:12px 24px; border-radius:12px; font-size:14px; font-weight:500; z-index:9999; opacity:0; transition:all 0.3s; pointer-events:none; }
+  .toast.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
+
+  .empty-state { text-align:center; padding:60px 20px; color:var(--text-muted); }
+  .empty-state .icon { font-size:48px; margin-bottom:12px; }
+
+  .footer { text-align:center; padding:20px 16px 48px; color:var(--text-muted); font-size:11px; }
+  .footer .brand { font-weight:700; color:var(--primary); }
+  .footer .line { width:32px; height:2px; background:var(--border); margin:10px auto; border-radius:1px; }
+
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .product-item { animation:fadeInUp 0.35s ease both; }
+  .product-item:nth-child(2){animation-delay:0.04s} .product-item:nth-child(3){animation-delay:0.08s}
+  .product-item:nth-child(4){animation-delay:0.12s} .product-item:nth-child(5){animation-delay:0.16s}
+</style>
+</head>
+<body>
+<div class="phone-frame">
+
+<div class="banner" id="banner">
+  <div class="banner-slides" id="bannerSlides">
+    <div class="banner-slide"><div class="slide-icon">☁️</div><h2>客如云产品亮点</h2><p>一站式餐饮数字化解决方案 · 覆盖180万+商户</p></div>
+    <div class="banner-slide"><div class="slide-icon">🔧</div><h2>产品知识</h2><p>KPOS智享版 · 私域营销 · 智慧屏CDS · 移动点餐宝 · 数智报表 · 智能后厨KDS · 企微代运营 · 碰碰贴 · 经营大屏 · 易定 · 智能巡店 · 新零售 · 进销存 · 文典供应链 · 电子发票 · 智慧分销商城</p></div>
+    <div class="banner-slide"><div class="slide-icon">🤖</div><h2>AI 专区</h2><p>客服AI · 效率AI · 效果AI</p></div>
+  </div>
+  <div class="banner-dots" id="bannerDots">
+    <div class="banner-dot active" data-index="0"></div>
+    <div class="banner-dot" data-index="1"></div>
+    <div class="banner-dot" data-index="2"></div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">产品板块</div></div>
+  <div class="stat-card"><div class="stat-num">19</div><div class="stat-label">产品模块</div></div>
+  <div class="stat-card"><div class="stat-num">16</div><div class="stat-label">产品图片</div></div>
+  <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">AI 能力</div></div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-cat="all">全部 <span class="count">19</span></div>
+    <div class="tab" data-cat="product">产品知识 <span class="count">16</span></div>
+    <div class="tab" data-cat="ai">AI专区 <span class="count">3</span></div>
+    <div class="tab" data-cat="fav">⭐ 收藏 <span class="count" id="favCount">0</span></div>
+  </div>
+</div>
+
+<div class="search-bar">
+  <span class="search-icon">🔍</span>
+  <input type="text" id="searchInput" placeholder="搜索产品名称...">
+</div>
+
+<div class="save-tip">
+  <span class="icon">💡</span>
+  <span class="text">点击产品名称查看截图 · 长按图片可保存转发 · ⭐收藏常用产品</span>
+</div>
+
+<div id="content"></div>
+
+<div class="footer">
+  <span class="brand">客如云</span> · 让餐饮经营更简单
+  <div class="line"></div>
+  <span style="opacity:0.5">长按图片可保存转发</span>
+</div>
+
+</div>
+
+<div class="bottom-bar">
+  <div class="bar-btn" id="btnTop">
+    <span class="icon">⬆️</span>
+    <span class="label">回到顶部</span>
+  </div>
+  <div class="bar-btn" id="btnShare">
+    <span class="icon">📤</span>
+    <span class="label">分享链接</span>
+  </div>
+  <div class="bar-btn" id="btnSearch">
+    <span class="icon">🔍</span>
+    <span class="label">搜索</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var products = [
+    { cat:"product", catName:"产品知识", icon:"🖥️", name:"KPOS智享版", img:"https://img.alicdn.com/imgextra/i3/O1CN01PhG05X1VMiMcpgnR5_!!6000000002639-0-tps-1080-7855.jpg", tags:["hot","rec"], scenes:["快餐","正餐","茶饮"], pitch:"一套系统搞定点餐收银、会员营销、外卖接单，开店必备，客户最容易接受的第一款产品。" },
+    { cat:"product", catName:"产品知识", icon:"📣", name:"私域营销", img:"https://img.alicdn.com/imgextra/i1/O1CN01RtJuS81gZVCCDrhkS_!!6000000004156-0-tps-1242-10943.jpg", tags:["hot"], scenes:["正餐","茶饮","烘焙"], pitch:"帮客户把散客变会员、会员变回头客，储值+积分+优惠券，复购率直接拉升。" },
+    { cat:"product", catName:"产品知识", icon:"📺", name:"智慧屏CDS", img:"https://img.alicdn.com/imgextra/i1/O1CN01jKQYTZ1UQ5fRh0rbm_!!6000000002511-0-tps-1242-7343.jpg", tags:["new"], scenes:["快餐","茶饮","烘焙"], pitch:"门店门口一块屏，菜单自动轮播、新品推荐、促销活动，提升进店转化率。" },
+    { cat:"product", catName:"产品知识", icon:"📱", name:"移动点餐宝", img:"https://img.alicdn.com/imgextra/i4/O1CN01BWTdlM1iKVSXSlVbC_!!6000000004394-0-tps-1242-13114.jpg", tags:["rec"], scenes:["正餐","火锅","烤肉"], pitch:"服务员手持点餐，桌边下单秒传后厨，翻台率提升30%，正餐客户刚需。" },
+    { cat:"product", catName:"产品知识", icon:"📊", name:"数智报表", img:"https://img.alicdn.com/imgextra/i3/O1CN01LgPcsj1Whc3Gy6kmO_!!6000000002820-0-tps-1242-7446.jpg", tags:["rec"], scenes:["快餐","正餐","茶饮","烘焙"], pitch:"老板手机看经营数据，营收、客流、菜品排行一目了然，连锁老板最爱。" },
+    { cat:"product", catName:"产品知识", icon:"🍳", name:"智能后厨KDS", img:"https://img.alicdn.com/imgextra/i1/O1CN01xsnVqc213XUCGh4bb_!!6000000006929-0-tps-1242-9493.jpg", tags:["hot"], scenes:["快餐","正餐","火锅"], pitch:"告别纸质小票，后厨屏幕自动分单、排队、催单，出餐效率翻倍。" },
+    { cat:"product", catName:"产品知识", icon:"💬", name:"企微代运营", img:"https://img.alicdn.com/imgextra/i3/O1CN01Tv1DaE24qUfSyuIHK_!!6000000007442-0-tps-1836-13492.jpg", tags:["new"], scenes:["正餐","茶饮","烘焙"], pitch:"帮客户搭建企业微信私域池，自动发券、生日关怀、沉默唤醒，托管式运营。" },
+    { cat:"product", catName:"产品知识", icon:"🏷️", name:"碰碰贴", img:"https://img.alicdn.com/imgextra/i3/O1CN010DbquX1lebgm9gcSq_!!6000000004844-0-tps-1242-9845.jpg", tags:["new","rec"], scenes:["快餐","茶饮"], pitch:"桌上一贴，顾客手机NFC碰一下直接点餐下单，科技感拉满，年轻客户喜欢。" },
+    { cat:"product", catName:"产品知识", icon:"📈", name:"经营大屏", img:"https://img.alicdn.com/imgextra/i3/O1CN01ERnKi220jO3kms6Em_!!6000000006885-0-tps-1242-7406.jpg", tags:["rec"], scenes:["快餐","正餐","连锁"], pitch:"门店/总部实时经营数据上墙，老板巡店一眼看全局，连锁品牌标配。" },
+    { cat:"product", catName:"产品知识", icon:"📋", name:"易定", img:"https://img.alicdn.com/imgextra/i3/O1CN01cKas1H1ks3hpV0FjQ_!!6000000004738-0-tps-1242-10091.jpg", tags:[], scenes:["正餐","火锅","宴会"], pitch:"宴会预订、包间管理、定金收取一站式搞定，做宴席/团餐的客户必备。" },
+    { cat:"product", catName:"产品知识", icon:"🔍", name:"智能巡店", img:"https://img.alicdn.com/imgextra/i1/O1CN01ePst2920lDdxCMKQl_!!6000000006889-0-tps-2400-18774.jpg", tags:["new"], scenes:["连锁","快餐"], pitch:"AI自动巡检门店卫生、陈列、服务标准，连锁品牌远程管理利器。" },
+    { cat:"product", catName:"产品知识", icon:"🛒", name:"新零售", img:"https://img.alicdn.com/imgextra/i4/O1CN01OrFhlx26pEoUpAwJm_!!6000000007710-0-tps-1080-13361.jpg", tags:[], scenes:["烘焙","茶饮","零售"], pitch:"线上下单+门店自提/配送，半成品、周边商品线上卖，拓宽营收渠道。" },
+    { cat:"product", catName:"产品知识", icon:"📦", name:"进销存", img:"https://img.alicdn.com/imgextra/i4/O1CN01XR5AuN1jrlqCRapkj_!!6000000004602-0-tps-1242-7952.jpg", tags:["hot"], scenes:["快餐","正餐","茶饮"], pitch:"原料采购、库存预警、成本核算自动算，帮老板省钱就是帮他赚钱。" },
+    { cat:"product", catName:"产品知识", icon:"🚚", name:"文典供应链", img:"https://img.alicdn.com/imgextra/i2/O1CN01nsaKXy1wjbmt75RsP_!!6000000006344-0-tps-750-11224.jpg", tags:[], scenes:["连锁","正餐"], pitch:"中央厨房+多仓配送+供应商管理，50店以上连锁客户的深度需求。" },
+    { cat:"product", catName:"产品知识", icon:"🧾", name:"电子发票", img:"https://img.alicdn.com/imgextra/i3/O1CN01WfKXSi1nFzdRGcxuP_!!6000000005061-0-tps-930-5342.jpg", tags:[], scenes:["快餐","正餐","茶饮","烘焙"], pitch:"顾客扫码自助开票，财务对账零压力，合规又省事。" },
+    { cat:"product", catName:"产品知识", icon:"🏪", name:"智慧分销商城", img:"https://img.alicdn.com/imgextra/i1/O1CN01umNvzd22xhffC2rA4_!!6000000007187-0-tps-1125-11530.jpg", tags:["new"], scenes:["烘焙","茶饮","零售"], pitch:"裂变分销+团长佣金+社群运营，帮客户把顾客变成推广员。" },
+    { cat:"ai", catName:"AI专区", icon:"🎧", name:"客服AI", img:null, tags:["new"], scenes:[], pitch:"AI自动回复客户咨询、处理投诉、预约排号，24小时在线不休息。" },
+    { cat:"ai", catName:"AI专区", icon:"⚡", name:"效率AI", img:null, tags:["new"], scenes:[], pitch:"智能排班、菜品推荐、营销文案自动生成，让店长从琐事中解放出来。" },
+    { cat:"ai", catName:"AI专区", icon:"🎯", name:"效果AI", img:null, tags:["new"], scenes:[], pitch:"AI分析经营数据，自动给出优化建议：该调价格了、该上新品了、该做活动了。" }
+  ];
+
+  var catConfig = {
+    product: { title:"产品知识", theme:"theme-product", icon:"🔧", desc:"16个产品功能" },
+    ai: { title:"AI专区", theme:"theme-ai", icon:"🤖", desc:"3个AI能力" }
+  };
+
+  var tagMap = { hot:{cls:"tag-hot",text:"🔥 热销"}, new:{cls:"tag-new",text:"✨ 新品"}, rec:{cls:"tag-rec",text:"👍 推荐"} };
+
+  var currentCat = "all";
+  var favorites = [];
+  try { favorites = JSON.parse(localStorage.getItem("kry_fav") || "[]"); } catch(e) { favorites = []; }
+
+  function showToast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(function() { t.classList.remove("show"); }, 1500);
+  }
+
+  window.toggleFav = function(name) {
+    var idx = favorites.indexOf(name);
+    if (idx >= 0) { favorites.splice(idx, 1); showToast("已取消收藏"); }
+    else { favorites.push(name); showToast("已收藏"); }
+    try { localStorage.setItem("kry_fav", JSON.stringify(favorites)); } catch(e) {}
+    updateFavCount();
+    render(document.getElementById("searchInput").value);
+  };
+
+  function updateFavCount() {
+    document.getElementById("favCount").textContent = favorites.length;
+  }
+
+  window.copyPitch = function(text, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = "已复制";
+        btn.classList.add("copied");
+        showToast("话术已复制，可直接发给客户");
+        setTimeout(function() { btn.textContent = "复制"; btn.classList.remove("copied"); }, 2000);
+      });
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      btn.textContent = "已复制";
+      btn.classList.add("copied");
+      showToast("话术已复制");
+      setTimeout(function() { btn.textContent = "复制"; btn.classList.remove("copied"); }, 2000);
+    }
+  };
+
+  function render(filter) {
+    filter = filter || "";
+    var content = document.getElementById("content");
+    var filtered = products;
+    if (currentCat === "fav") {
+      filtered = filtered.filter(function(p) { return favorites.indexOf(p.name) >= 0; });
+    } else if (currentCat !== "all") {
+      filtered = filtered.filter(function(p) { return p.cat === currentCat; });
+    }
+    if (filter) {
+      var f = filter.toLowerCase();
+      filtered = filtered.filter(function(p) { return p.name.toLowerCase().indexOf(f) >= 0; });
+    }
+    if (filtered.length === 0) {
+      var msg = currentCat === "fav" ? "还没有收藏产品，点击星星添加" : "未找到相关产品";
+      content.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><div class="text">' + msg + '</div></div>';
+      return;
+    }
+    var groups = {};
+    for (var i = 0; i < filtered.length; i++) {
+      var p = filtered[i];
+      if (!groups[p.cat]) groups[p.cat] = [];
+      groups[p.cat].push(p);
+    }
+    var html = "";
+    var cats = ["product", "ai"];
+    for (var c = 0; c < cats.length; c++) {
+      var cat = cats[c];
+      if (!groups[cat]) continue;
+      var cfg = catConfig[cat];
+      html += '<div class="section ' + cfg.theme + '">';
+      html += '<div class="section-header"><div class="section-icon">' + cfg.icon + '</div><div class="section-title">' + cfg.title + '</div><div class="section-count">' + cfg.desc + '</div></div>';
+      for (var j = 0; j < groups[cat].length; j++) {
+        var p = groups[cat][j];
+        var isFav = favorites.indexOf(p.name) >= 0;
+        var tagsHtml = "";
+        if (p.tags && p.tags.length > 0) {
+          for (var t = 0; t < p.tags.length; t++) {
+            var tm = tagMap[p.tags[t]];
+            if (tm) tagsHtml += '<span class="tag ' + tm.cls + '">' + tm.text + '</span>';
+          }
+        }
+        var scenesHtml = "";
+        if (p.scenes && p.scenes.length > 0) {
+          for (var s = 0; s < p.scenes.length; s++) {
+            scenesHtml += '<span class="tag tag-scene">' + p.scenes[s] + '</span>';
+          }
+        }
+        var pitchHtml = "";
+        if (p.pitch) {
+          var escPitch = p.pitch.replace(/'/g, "\\'");
+          pitchHtml = '<div class="product-pitch"><div class="pitch-box"><span class="icon">💬</span><span class="text">' + p.pitch + '</span><button class="pitch-copy" onclick="event.stopPropagation();window.copyPitch(\'' + escPitch + '\',this)">复制</button></div></div>';
+        }
+        var imgHtml;
+        if (p.img) {
+          imgHtml = '<div class="product-img-wrap"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></div>';
+        } else {
+          imgHtml = '<div class="product-img-wrap"><div class="product-placeholder"><div class="icon">🚧</div><div class="text">内容补充中</div></div></div>';
+        }
+        var tagsAndScenes = (tagsHtml || scenesHtml) ? '<div class="product-tags">' + tagsHtml + scenesHtml + '</div>' : '';
+        html += '<div class="product-item' + (isFav ? ' fav' : '') + '" onclick="this.classList.toggle(\'open\')">';
+        html += '<div class="product-row">';
+        html += '<div class="product-icon">' + p.icon + '</div>';
+        html += '<div class="product-info"><div class="product-name">' + p.name + '</div><div class="product-cat">' + p.catName + '</div></div>';
+        html += '<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
+        html += '<svg class="product-fav" viewBox="0 0 24 24" fill="' + (isFav ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" onclick="event.stopPropagation();window.toggleFav(\'' + p.name + '\')"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+        html += '</div>';
+        html += tagsAndScenes;
+        html += pitchHtml;
+        html += imgHtml;
+        html += '</div>';
+      }
+      html += '</div>';
+    }
+    content.innerHTML = html;
+  }
+
+  document.getElementById("tabs").addEventListener("click", function(e) {
+    var tab = e.target.closest(".tab");
+    if (!tab) return;
+    var tabs = document.querySelectorAll(".tab");
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("active");
+    tab.classList.add("active");
+    currentCat = tab.getAttribute("data-cat");
+    render(document.getElementById("searchInput").value);
+  });
+
+  document.getElementById("searchInput").addEventListener("input", function(e) {
+    render(e.target.value);
+  });
+
+  document.getElementById("btnTop").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.getElementById("btnShare").addEventListener("click", function() {
+    var url = location.href;
+    if (navigator.share) {
+      navigator.share({ title: "客如云产品亮点功能库", text: "一站式餐饮数字化解决方案", url: url }).catch(function() {});
+    } else {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() { showToast("链接已复制，可转发给客户"); });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = url;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast("链接已复制，可转发给客户");
+      }
+    }
+  });
+
+  document.getElementById("btnSearch").addEventListener("click", function() {
+    document.getElementById("searchInput").focus();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Banner
+  var currentSlide = 0, totalSlides = 3, autoTimer;
+  function goToSlide(i) {
+    currentSlide = i;
+    document.getElementById("bannerSlides").style.transform = "translateX(-" + (i * 33.333) + "%)";
+    var dots = document.querySelectorAll(".banner-dot");
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].classList.toggle("active", d === i);
+    }
+  }
+  function nextSlide() { goToSlide((currentSlide + 1) % totalSlides); }
+  function startAuto() { autoTimer = setInterval(nextSlide, 4000); }
+  function stopAuto() { clearInterval(autoTimer); }
+  document.getElementById("bannerDots").addEventListener("click", function(e) {
+    var dot = e.target.closest(".banner-dot");
+    if (!dot) return;
+    stopAuto();
+    goToSlide(parseInt(dot.getAttribute("data-index")));
+    startAuto();
+  });
+  var touchX = 0;
+  var bannerEl = document.getElementById("banner");
+  bannerEl.addEventListener("touchstart", function(e) { touchX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  bannerEl.addEventListener("touchend", function(e) {
+    var d = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 50) {
+      if (d > 0) goToSlide((currentSlide + 1) % totalSlides);
+      else goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    }
+    startAuto();
+  }, { passive: true });
+  startAuto();
+
+  updateFavCount();
+  render();
+})();
+</script>
+</body>
+</html>
